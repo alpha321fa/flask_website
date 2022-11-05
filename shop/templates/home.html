@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+<form method="POST" action="{{ url_for('home') }}">
+    {{ form.csrf_token }}
+    <p>{{ form.sort_type.label }} {{ form.sort_type }}</p>
+</form>
+{% for item in items %}
+    <div class="gallery_item">
+        <p><img src="{{ url_for('static', filename='img/' + item.image) }}"></p>
+        <p class="item_name">{{item.name}}</p>
+        <p class="item_description">{{item.description}}</p>
+        <p>£<span class="item_price">{{"{:.2f}".format(item.price)}}</span></p>
+        <a href="{{ url_for('item', item_id=item.id) }}"><input type="submit" value="More details" class="details"></a>
+        <a href="/add_to_cart/{{ item.id }}"><input type="submit" value="Add to Cart" class="add_to_cart"></a>
+    </div>
+    <br>
+{% endfor %}
+{% endblock content %}

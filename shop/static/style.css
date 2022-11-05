@@ -1,0 +1,43 @@
+body {
+    font-family:helvetica, sans-serif;
+    background-color: #aaecd5;
+    text-align: center;
+  }
+
+img {
+  max-height: 20%;
+  max-width: 20%;
+  border: 3px solid;
+  border-color: rgb(69, 69, 212);
+  border-style: inset;
+}
+ 
+.gallery_item {
+  border: 3px solid;
+  border-radius: 16px;
+  border-color: rgb(69, 69, 212);
+  border-style: inset;
+  padding: 5px;
+}
+
+input[type=submit] {
+  background-color: white;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.flashes {
+  list-style-type: none;
+}
+
+#sort_type {
+  background-color: white;
+}
+
+#banner {
+  color: blueviolet;
+  background-color: azure;
+  border-radius: 25px;
+}
+

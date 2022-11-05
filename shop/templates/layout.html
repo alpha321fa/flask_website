@@ -1,0 +1,36 @@
+<html>
+<head>
+    <meta charset="'utf-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
+    <title>Shopping Site</title>
+</head>
+
+<body>
+    <div id="banner">
+        <h1>Fruit Marketplace</h1>
+        <p>Contact Us: 02920 112233</p>
+    </div>
+    <div id="header">
+        <a href="{{ url_for('home') }}" id="home">Home</a>
+        <a href="{{ url_for('login') }}" id="login">Login</a>
+        <a href="{{ url_for('register') }}" id="register">Register</a>
+        <a href="{{ url_for('cart') }}" id="show_cart">Cart</a>
+        <a href="{{ url_for('logout') }}" id="logout">Logout</a>
+    </div>
+    <div>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class=flashes>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    </div>
+    <div id="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

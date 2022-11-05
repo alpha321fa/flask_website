@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="gallery_item_details">
+    <p><img src="{{ url_for('static', filename='img/' + item.image) }}"></p>
+    <p class="item_name">{{item.name}}</p>
+    <p class="item_description">{{item.description}}</p>
+    <p>£<span class="item_price">{{"{:.2f}".format(item.price)}}</span></p>
+    <p>{{item.carbon}} CO2e</p>
+</div>  
+{% endblock content %}

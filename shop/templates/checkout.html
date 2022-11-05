@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+<form method="POST" action="" class="checkout_form">
+    {{ form.csrf_token }}
+    <p>{{ form.name.label }} {{ form.name }}</p>
+    <p>{{ form.card_no.label }} {{ form.card_no }}</p>
+    <p>{{ form.submit }}</p>
+</form>
+
+{% for error in form.card_no.errors %}
+    <span style="color: red;">[{{ error }}]</span>
+{% endfor %}
+
+{% endblock content %}

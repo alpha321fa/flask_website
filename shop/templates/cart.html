@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block content %}
+{% if cart %}
+    {% for item in cart %}
+        <div class="gallery_item">
+            <p><img src="{{ url_for('static', filename='img/' + cart[item][2]) }}"></p>
+            <p>Item Name : {{item}}</p>
+            <p>Quantity : {{cart[item][0]}}</p>
+            <p>Price: £<span class="item_price">{{"{:.2f}".format(cart[item][1])}}</span></p>
+            <a href="/remove/{{item}}"><input type="submit" value="Remove" class="remove"></a>
+            <br><br>
+        </div>  
+    {% endfor %}
+    <p>Total Price : £<span id="total_price">{{"{:.2f}".format(total_price)}}</span></p>
+    <a href="{{ url_for('checkout') }}"><input type="submit" value="Checkout" id="checkout"></a>
+{% else %}
+<h1>Your cart is empty.</h1>
+{% endif %}
+{% endblock content %}
